@@ -22,7 +22,7 @@ Everything runs on the server, so players don't install anything. Java and Bedro
 1. Run a **Paper 26.2** server on **Java 25**.
 2. Add [EssentialsX](https://essentialsx.net/) and [VaultUnlocked](https://www.spigotmc.org/resources/vaultunlocked.117277/) for money.
    Optional: [BlueMap](https://bluemap.bluecolored.de/) for a web map, [Geyser and Floodgate](https://geysermc.org/) for Bedrock players.
-3. Download the jars you want from the [latest release](../../releases/latest) and put them in your server's `plugins` folder.
+3. Download the jars you want from the [downloads](downloads) folder and put them in your server's `plugins` folder.
 4. Restart the server. Each plugin makes its own `plugins/<Name>/config.yml` you can change.
 
 UNBorders needs UNBank. Everything else can be used on its own.

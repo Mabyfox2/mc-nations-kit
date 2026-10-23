@@ -1,0 +1,119 @@
+# Determines the value of items on the server.
+# Items not listed here cannot be sold.
+# Setting the value to 0 sells items for free; set to -1 or remove the item to disable selling.
+# Prices can be set in this file or via the '/setworth' command in-game.
+#
+# Nations server prices for EssentialsX /sell. Keys are the item name in lowercase
+# with the underscores removed (ancient_debris -> ancientdebris).
+
+worth:
+  # Ores and minerals
+  diamond: 50.0
+  ancientdebris: 150.0
+  netheriteingot: 700.0
+  emerald: 8.0
+  goldingot: 6.0
+  ironingot: 2.0
+  copperingot: 0.5
+  coal: 0.5
+  lapislazuli: 0.5
+  redstone: 0.3
+  quartz: 0.5
+
+  # Crops
+  wheat: 0.2
+  carrot: 0.2
+  potato: 0.2
+  beetroot: 0.2
+
+  # Logs (stripped too)
+  oaklog: 0.5
+  sprucelog: 0.5
+  birchlog: 0.5
+  junglelog: 0.5
+  acacialog: 0.5
+  darkoaklog: 0.5
+  mangrovelog: 0.5
+  cherrylog: 0.5
+  paleoaklog: 0.5
+  crimsonstem: 0.5
+  warpedstem: 0.5
+  strippedoaklog: 0.5
+  strippedsprucelog: 0.5
+  strippedbirchlog: 0.5
+  strippedjunglelog: 0.5
+  strippedacacialog: 0.5
+  strippeddarkoaklog: 0.5
+  strippedmangrovelog: 0.5
+  strippedcherrylog: 0.5
+  strippedpaleoaklog: 0.5
+  strippedcrimsonstem: 0.5
+  strippedwarpedstem: 0.5
+
+  # Mob drops
+  rottenflesh: 0.05
+  bone: 0.05
+  string: 0.05
+  arrow: 0.05
+  gunpowder: 0.2
+
+  # Raw blocks (sell bulk raw resources for cents)
+  dirt: 0.01
+  coarsedirt: 0.01
+  rooteddirt: 0.01
+  grassblock: 0.01
+  podzol: 0.01
+  mycelium: 0.01
+  mud: 0.01
+  sand: 0.01
+  redsand: 0.01
+  gravel: 0.01
+  cobblestone: 0.01
+  stone: 0.02
+  cobbleddeepslate: 0.01
+  deepslate: 0.02
+  andesite: 0.01
+  diorite: 0.01
+  granite: 0.01
+  tuff: 0.01
+  calcite: 0.02
+  netherrack: 0.01
+  blackstone: 0.01
+  basalt: 0.01
+  soulsand: 0.01
+  soulsoil: 0.01
+  endstone: 0.02
+  clayball: 0.02
+  clay: 0.08
+  snowball: 0.01
+  ice: 0.02
+  mossblock: 0.02
+  flint: 0.03
+  obsidian: 0.1
+
+  # Raw ores
+  rawiron: 1.5
+  rawgold: 4.5
+  rawcopper: 0.4
+  amethystshard: 0.2
+
+  # Plants
+  sugarcane: 0.05
+  cactus: 0.03
+  kelp: 0.01
+  bamboo: 0.01
+  pumpkin: 0.1
+  melonslice: 0.03
+  wheatseeds: 0.01
+  sweetberries: 0.02
+  netherwart: 0.05
+
+  # More mob drops
+  spidereye: 0.05
+  feather: 0.05
+  leather: 0.15
+  egg: 0.02
+  inksac: 0.05
+  slimeball: 0.2
+  enderpearl: 0.5
+  whitewool: 0.05

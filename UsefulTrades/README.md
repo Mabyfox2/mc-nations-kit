@@ -27,5 +27,5 @@
 
 ## Extra: sell prices
 
-[`extras/worth.yml`](extras/worth.yml) is an EssentialsX price list for `/sell` that fits this economy,
+[`extras/worth.yml`](extras/worth.yml) (also in [downloads](../downloads)) is an EssentialsX price list for `/sell` that fits this economy,
 including cheap prices for raw blocks (dirt $0.01). Copy it to `plugins/Essentials/worth.yml` if you want it.
