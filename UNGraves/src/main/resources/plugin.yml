@@ -1,0 +1,20 @@
+name: UNGraves
+version: '1.0.0'
+main: net.mabyfox.ungraves.UNGraves
+api-version: '26.2'
+description: Graves for the United Nations of MC With Gang. Items wait in a grave only the owner can open, unless their nation is at war.
+authors: [mabyfox]
+softdepend: [UNBank, UNBorders]
+commands:
+  graves:
+    description: See where your graves are
+    usage: /graves
+    permission: ungraves.use
+    aliases: [grave]
+permissions:
+  ungraves.use:
+    description: Use /graves
+    default: true
+  ungraves.admin:
+    description: Open any grave, list everyone's graves, /graves test
+    default: op

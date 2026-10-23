@@ -1,0 +1,566 @@
+# ------------------------------------------------------------------
+#  UsefulTrades - extra villager trades
+#
+#  Vanilla trades stay. Each trade below gets ADDED once a villager
+#  reaches its level:
+#    1 = Novice   2 = Apprentice   3 = Journeyman   4 = Expert   5 = Master
+#
+#  After editing this file, run /usefultrades reload (or restart).
+#  Villagers pick up the change the next time someone opens their
+#  trades, including villagers that are already levelled up.
+#
+#  Fields for each trade:
+#    level:        1-5
+#    item:         what the villager sells, "<amount> <item>"
+#                  e.g. "1 netherite_upgrade_smithing_template"
+#    book:         OR sell an enchanted book, "<enchantment> <level>"
+#                  e.g. "mending 1", "efficiency 5"
+#    map:          OR sell an explorer map to the nearest structure,
+#                  e.g. "stronghold", "ancient_city", "trial_chambers".
+#                  Bastion/fortress maps are Nether maps: they point to
+#                  the bastion near the matching Nether spot and only
+#                  work while you're in the Nether.
+#                  Each villager draws its map once, the first time the
+#                  trade shows up. If there's no such structure within
+#                  100 chunks, that villager just doesn't sell it.
+#    map-icon:     optional marker on the map, e.g. "red_x" (default),
+#                  "target_x", "trial_chambers", "mansion", "monument"
+#    price:        first cost, "<amount> <item>", e.g. "24 emerald"
+#    price2:       optional second cost, e.g. "1 book"
+#    max-uses:     trades before a restock (default 12; the
+#                  InfiniteVillagerTrading plugin makes it unlimited)
+#    villager-xp:  how much the villager levels up per trade
+#
+#  Item and enchantment names are the same IDs /give uses.
+#  To add trades for another job, add a section like "cleric:".
+#
+#  The "wandering_trader" section works the same way, except wandering
+#  traders have no levels: every trade in it is always added.
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+#  Less grinding (added in 1.2.0)
+# ------------------------------------------------------------------
+
+# Every villager and wandering trader trade costs this many times its
+# normal price (both costs, never more than a full stack). 1 = normal
+# vanilla prices. 2 = double (8 iron for an emerald instead of 4).
+# Applies to vanilla trades AND the trades below (write the trades below
+# at normal price). Villagers switch over the next time someone opens
+# their trades, including undoing an older multiplier.
+cost-multiplier: 1
+
+# Mobs killed by a player drop this many times their normal loot.
+# Mob farms that kill without a player, XP, shearing and crops stay normal.
+# Anything a mob was wearing, holding or carrying, and unstackable drops
+# (armor, tools, totems), drop once, so nothing can be duplicated.
+mob-drops:
+  multiplier: 5
+  only-player-kills: true
+  never-multiply:
+    - nether_star
+
+# Anvils: two enchantments of the same level make the next level, past
+# vanilla's max (Fortune 3 + Fortune 3 = Fortune 4), up to max-level.
+# Enchantments with only one level (Mending, Silk Touch) stay at 1.
+# The cost never goes past max-cost, so "Too Expensive" never shows.
+anvil:
+  max-level: 10
+  max-cost: 39
+  # Lower caps for some enchantments (anything not listed goes to max-level,
+  # e.g. efficiency and unbreaking). Items already above a cap keep their
+  # level; the anvil just won't combine them higher.
+  level-caps:
+    # Loot: more than 5 makes one kill or one ore too rich.
+    fortune: 5
+    looting: 5
+    luck_of_the_sea: 5
+    # Weapons and armor: 7 at most.
+    sharpness: 7
+    smite: 7
+    bane_of_arthropods: 7
+    power: 7
+    impaling: 7
+    density: 7
+    piercing: 7
+    sweeping_edge: 7
+    protection: 7
+    fire_protection: 7
+    blast_protection: 7
+    projectile_protection: 7
+    feather_falling: 7
+    # Kept near vanilla: breach 7 would ignore all armor, thorns stacks on
+    # every armor piece, knockback/punch launch players across the map,
+    # fire aspect burns too long, wind burst, lunge and riptide fling players
+    # (loading lots of chunks), frost walker freezes a huge area.
+    breach: 4
+    thorns: 3
+    knockback: 3
+    punch: 3
+    fire_aspect: 3
+    wind_burst: 3
+    lunge: 3
+    riptide: 4
+    frost_walker: 3
+    # quick charge 5+ makes crossbows stop working, lure 6+ stops fish biting.
+    quick_charge: 4
+    lure: 5
+
+# Villager fixes.
+villagers:
+  # Trades always cost their base price. InfiniteVillagerTrading's endless
+  # trades made vanilla's "demand" number overflow, so prices jumped to a
+  # full stack of emeralds or iron after villagers restocked.
+  steady-prices: true
+  # true = hitting or killing villagers doesn't make them raise prices or
+  # send iron golems after you, and old grudges are cleared. The discount
+  # for curing a zombie villager still works. Off: vanilla grudges.
+  no-grudges: false
+
+# The money sidebar (Java and Bedrock). Players hide/show it with /moneybar.
+money-bar:
+  enabled: true
+  title: "UN of MC"
+
+trades:
+
+  # Librarian staples: guaranteed books, so nobody has to reroll librarians.
+  librarian:
+    unbreaking:
+      level: 1
+      book: unbreaking 3
+      price: 18 emerald
+      price2: 1 book
+      villager-xp: 2
+    efficiency:
+      level: 2
+      book: efficiency 5
+      price: 22 emerald
+      price2: 1 book
+      villager-xp: 10
+    protection:
+      level: 2
+      book: protection 4
+      price: 22 emerald
+      price2: 1 book
+      villager-xp: 10
+    sharpness:
+      level: 3
+      book: sharpness 5
+      price: 22 emerald
+      price2: 1 book
+      villager-xp: 20
+    feather_falling:
+      level: 3
+      book: feather_falling 4
+      price: 16 emerald
+      price2: 1 book
+      villager-xp: 20
+    fortune:
+      level: 4
+      book: fortune 3
+      price: 26 emerald
+      price2: 1 book
+      villager-xp: 30
+    silk_touch:
+      level: 4
+      book: silk_touch 1
+      price: 18 emerald
+      price2: 1 book
+      villager-xp: 30
+    looting:
+      level: 4
+      book: looting 3
+      price: 26 emerald
+      price2: 1 book
+      villager-xp: 30
+    mending:
+      level: 5
+      book: mending 1
+      price: 28 emerald
+      price2: 1 book
+      villager-xp: 30
+    respiration:
+      level: 2
+      book: respiration 3
+      price: 16 emerald
+      price2: 1 book
+      villager-xp: 10
+    power:
+      level: 3
+      book: power 5
+      price: 22 emerald
+      price2: 1 book
+      villager-xp: 20
+    depth_strider:
+      level: 3
+      book: depth_strider 3
+      price: 18 emerald
+      price2: 1 book
+      villager-xp: 20
+    infinity:
+      level: 4
+      book: infinity 1
+      price: 24 emerald
+      price2: 1 book
+      villager-xp: 30
+    thorns:
+      level: 4
+      book: thorns 3
+      price: 20 emerald
+      price2: 1 book
+      villager-xp: 30
+    frost_walker:
+      level: 5
+      book: frost_walker 2
+      price: 24 emerald
+      price2: 1 book
+      villager-xp: 30
+    swift_sneak:
+      level: 5
+      book: swift_sneak 3
+      price: 32 emerald
+      price2: 1 book
+      villager-xp: 30
+
+  # Netherite upgrade templates from Master smiths.
+  armorer:
+    netherite_template:
+      level: 5
+      item: 1 netherite_upgrade_smithing_template
+      price: 24 emerald
+      price2: 3 diamond
+      max-uses: 6
+      villager-xp: 30
+    coast_trim:
+      level: 4
+      item: 1 coast_armor_trim_smithing_template
+      price: 16 emerald
+      price2: 1 diamond
+      max-uses: 4
+      villager-xp: 30
+    wild_trim:
+      level: 4
+      item: 1 wild_armor_trim_smithing_template
+      price: 16 emerald
+      price2: 1 diamond
+      max-uses: 4
+      villager-xp: 30
+    ward_trim:
+      level: 5
+      item: 1 ward_armor_trim_smithing_template
+      price: 24 emerald
+      price2: 2 diamond
+      max-uses: 4
+      villager-xp: 30
+    silence_trim:
+      level: 5
+      item: 1 silence_armor_trim_smithing_template
+      price: 32 emerald
+      price2: 3 diamond
+      max-uses: 2
+      villager-xp: 30
+
+  toolsmith:
+    netherite_template:
+      level: 5
+      item: 1 netherite_upgrade_smithing_template
+      price: 24 emerald
+      price2: 3 diamond
+      max-uses: 6
+      villager-xp: 30
+    iron_ingot:
+      level: 2
+      item: 4 iron_ingot
+      price: 2 emerald
+      villager-xp: 10
+    diamond:
+      level: 4
+      item: 1 diamond
+      price: 8 emerald
+      max-uses: 6
+      villager-xp: 30
+
+  weaponsmith:
+    netherite_template:
+      level: 5
+      item: 1 netherite_upgrade_smithing_template
+      price: 24 emerald
+      price2: 3 diamond
+      max-uses: 6
+      villager-xp: 30
+    trident:
+      level: 5
+      item: 1 trident
+      price: 40 emerald
+      price2: 2 diamond
+      max-uses: 2
+      villager-xp: 30
+
+  # More unique items per job, so one villager of each kind covers a lot.
+  cleric:
+    nether_wart:
+      level: 1
+      item: 4 nether_wart
+      price: 4 emerald
+      villager-xp: 2
+    blaze_rod:
+      level: 2
+      item: 2 blaze_rod
+      price: 6 emerald
+      villager-xp: 10
+    ghast_tear:
+      level: 3
+      item: 1 ghast_tear
+      price: 10 emerald
+      villager-xp: 20
+    phantom_membrane:
+      level: 3
+      item: 2 phantom_membrane
+      price: 8 emerald
+      villager-xp: 20
+    dragon_breath:
+      level: 5
+      item: 1 dragon_breath
+      price: 16 emerald
+      max-uses: 4
+      villager-xp: 30
+    totem_of_undying:
+      level: 5
+      item: 1 totem_of_undying
+      price: 48 emerald
+      price2: 4 gold_block
+      max-uses: 1
+      villager-xp: 30
+    gunpowder:
+      level: 2
+      item: 8 gunpowder
+      price: 3 emerald
+      villager-xp: 10
+    slime_ball:
+      level: 3
+      item: 4 slime_ball
+      price: 4 emerald
+      villager-xp: 20
+    # The cleric also buys these (you get the emerald).
+    buys_bone:
+      level: 1
+      item: 1 emerald
+      price: 16 bone
+      villager-xp: 2
+    buys_spider_eye:
+      level: 2
+      item: 1 emerald
+      price: 12 spider_eye
+      villager-xp: 10
+
+  leatherworker:
+    saddle:
+      level: 2
+      item: 1 saddle
+      price: 8 emerald
+      max-uses: 4
+      villager-xp: 10
+    iron_horse_armor:
+      level: 2
+      item: 1 iron_horse_armor
+      price: 10 emerald
+      max-uses: 4
+      villager-xp: 10
+    golden_horse_armor:
+      level: 3
+      item: 1 golden_horse_armor
+      price: 14 emerald
+      max-uses: 4
+      villager-xp: 20
+    diamond_horse_armor:
+      level: 4
+      item: 1 diamond_horse_armor
+      price: 24 emerald
+      max-uses: 4
+      villager-xp: 30
+    leather:
+      level: 1
+      item: 6 leather
+      price: 3 emerald
+      villager-xp: 2
+
+  fisherman:
+    prismarine_crystals:
+      level: 2
+      item: 4 prismarine_crystals
+      price: 6 emerald
+      villager-xp: 10
+    nautilus_shell:
+      level: 3
+      item: 1 nautilus_shell
+      price: 10 emerald
+      max-uses: 6
+      villager-xp: 20
+    turtle_scute:
+      level: 3
+      item: 1 turtle_scute
+      price: 8 emerald
+      max-uses: 6
+      villager-xp: 20
+    sponge:
+      level: 4
+      item: 1 sponge
+      price: 12 emerald
+      max-uses: 6
+      villager-xp: 30
+    ink_sac:
+      level: 2
+      item: 8 ink_sac
+      price: 2 emerald
+      villager-xp: 10
+
+  farmer:
+    cocoa_beans:
+      level: 1
+      item: 4 cocoa_beans
+      price: 2 emerald
+      villager-xp: 2
+    glow_berries:
+      level: 2
+      item: 8 glow_berries
+      price: 4 emerald
+      villager-xp: 10
+    torchflower_seeds:
+      level: 3
+      item: 1 torchflower_seeds
+      price: 8 emerald
+      max-uses: 6
+      villager-xp: 20
+    pitcher_pod:
+      level: 3
+      item: 1 pitcher_pod
+      price: 8 emerald
+      max-uses: 6
+      villager-xp: 20
+    sugar_cane:
+      level: 2
+      item: 8 sugar_cane
+      price: 2 emerald
+      villager-xp: 10
+
+  mason:
+    calcite:
+      level: 2
+      item: 8 calcite
+      price: 2 emerald
+      villager-xp: 10
+    tuff:
+      level: 2
+      item: 8 tuff
+      price: 2 emerald
+      villager-xp: 10
+    amethyst_shard:
+      level: 3
+      item: 4 amethyst_shard
+      price: 4 emerald
+      villager-xp: 20
+    clay_ball:
+      level: 2
+      item: 16 clay_ball
+      price: 2 emerald
+      villager-xp: 10
+
+  fletcher:
+    wind_charge:
+      level: 3
+      item: 4 wind_charge
+      price: 6 emerald
+      villager-xp: 20
+    breeze_rod:
+      level: 4
+      item: 1 breeze_rod
+      price: 12 emerald
+      max-uses: 6
+      villager-xp: 30
+    string:
+      level: 1
+      item: 8 string
+      price: 2 emerald
+      villager-xp: 2
+    feather:
+      level: 2
+      item: 16 feather
+      price: 2 emerald
+      villager-xp: 10
+
+  # Explorer maps from cartographers, on top of their vanilla ocean/woodland maps.
+  cartographer:
+    trial_chambers_map:
+      level: 2
+      map: trial_chambers
+      price: 12 emerald
+      price2: 1 compass
+      villager-xp: 10
+    stronghold_map:
+      level: 3
+      map: stronghold
+      price: 24 emerald
+      price2: 1 compass
+      villager-xp: 20
+    bastion_map:
+      level: 4
+      map: bastion_remnant
+      price: 20 emerald
+      price2: 1 compass
+      villager-xp: 30
+    ancient_city_map:
+      level: 5
+      map: ancient_city
+      price: 28 emerald
+      price2: 1 compass
+      villager-xp: 30
+
+  # Rare items from wandering traders, on top of their usual random trades.
+  # Added in 1.2.0: bulk wool and food, so nobody needs huge animal farms.
+  shepherd:
+    white_wool:
+      level: 1
+      item: 8 white_wool
+      price: 2 emerald
+      villager-xp: 2
+
+  butcher:
+    cooked_beef:
+      level: 1
+      item: 8 cooked_beef
+      price: 2 emerald
+      villager-xp: 2
+    rabbit_foot:
+      level: 3
+      item: 2 rabbit_foot
+      price: 4 emerald
+      max-uses: 6
+      villager-xp: 20
+
+  wandering_trader:
+    shulker_shell:
+      item: 1 shulker_shell
+      price: 16 emerald
+      max-uses: 4
+      villager-xp: 0
+    heart_of_the_sea:
+      item: 1 heart_of_the_sea
+      price: 32 emerald
+      max-uses: 1
+      villager-xp: 0
+    sniffer_egg:
+      item: 1 sniffer_egg
+      price: 24 emerald
+      max-uses: 2
+      villager-xp: 0
+    name_tag:
+      item: 1 name_tag
+      price: 6 emerald
+      max-uses: 4
+      villager-xp: 0
+    saddle:
+      item: 1 saddle
+      price: 8 emerald
+      max-uses: 4
+      villager-xp: 0

@@ -1,0 +1,24 @@
+name: UsefulTrades
+version: '1.2.2'
+main: net.mabyfox.usefultrades.UsefulTrades
+api-version: '26.2'
+description: Extra villager trades, steady villager prices, more mob drops, higher anvil enchant levels and a money sidebar.
+authors: [mabyfox]
+softdepend: [Vault, VaultUnlocked, Essentials]
+commands:
+  usefultrades:
+    description: List, reload or self-test the extra villager trades
+    usage: /usefultrades <list|reload|selftest>
+    permission: usefultrades.admin
+    aliases: [utrades]
+  moneybar:
+    description: Show or hide the money sidebar
+    usage: /moneybar
+    permission: usefultrades.moneybar
+permissions:
+  usefultrades.admin:
+    description: Use /usefultrades
+    default: op
+  usefultrades.moneybar:
+    description: Use /moneybar
+    default: true

@@ -1,0 +1,9 @@
+# Bedrock button menus. Changes take effect on the next restart.
+
+# Give Bedrock players a "Server Menu" compass in their hotbar. They can remove it from the menu,
+# and /menu always works.
+give-compass: true
+
+# Shown in Land and borders so people can open the live map in a browser.
+# Leave it empty to hide it, e.g. map-link: "http://your-map-address:8100"
+map-link: ""

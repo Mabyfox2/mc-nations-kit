@@ -1,0 +1,29 @@
+name: UNBorders
+version: '1.0.0'
+main: net.mabyfox.unborders.UNBorders
+api-version: '26.2'
+description: Nation borders for the United Nations of MC With Gang. Claimed land is safe unless the UN approves a war.
+authors: [mabyfox]
+depend: [UNBank]
+softdepend: [Vault, VaultUnlocked, Essentials, BlueMap]
+commands:
+  claim:
+    description: Claim the chunk you're standing in for your nation
+    usage: /claim
+    permission: unborders.use
+  unclaim:
+    description: Give a chunk (or all your nation's land) back to the wild
+    usage: /unclaim [all]
+    permission: unborders.use
+  border:
+    description: See nation land, wars, and a map of nearby borders
+    usage: /border [map|list|wars]
+    permission: unborders.use
+    aliases: [borders]
+permissions:
+  unborders.use:
+    description: Use /claim, /unclaim and /border
+    default: true
+  unborders.admin:
+    description: Secretary-General border tools (war, peace, bypass, remove, reload)
+    default: op

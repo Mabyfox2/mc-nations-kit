@@ -1,0 +1,19 @@
+# Nation borders settings. After editing, run /border reload.
+# Claims and wars are saved in claims.yml (don't edit it while the server runs).
+
+# What claiming one chunk (16x16 blocks, full height) costs the player who claims it.
+claim-cost: 50
+
+# How many chunks a nation can hold: base-chunks + chunks-per-member x members.
+# A 3-player nation gets 16 + 24 = 40 chunks.
+base-chunks: 16
+chunks-per-member: 8
+
+# New land must touch land the nation already owns (side by side).
+must-connect: true
+
+# Chunks of wilderness that must stay between two nations.
+gap-between-nations: 1
+
+# Worlds where nobody can claim land.
+disabled-worlds: []

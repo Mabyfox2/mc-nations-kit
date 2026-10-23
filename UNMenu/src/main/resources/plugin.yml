@@ -1,0 +1,17 @@
+name: UNMenu
+version: '1.0.0'
+main: net.mabyfox.unmenu.UNMenu
+api-version: '26.2'
+description: Pop-up button menus for Bedrock players (PlayStation, phone, tablet) on the United Nations of MC With Gang.
+authors: [mabyfox]
+depend: [floodgate]
+softdepend: [Essentials, Vault, UNBank, UNBorders]
+commands:
+  menu:
+    description: Open the button menu (Bedrock players)
+    usage: /menu
+    permission: unmenu.use
+permissions:
+  unmenu.use:
+    description: Use /menu and the menu compass
+    default: true

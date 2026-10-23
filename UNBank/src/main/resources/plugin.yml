@@ -1,0 +1,27 @@
+name: UNBank
+version: '1.0.0'
+main: net.mabyfox.unbank.UNBank
+api-version: '26.2'
+description: Nations, treasuries, daily taxes and a UN treasury for the United Nations of MC With Gang.
+authors: [mabyfox]
+softdepend: [Vault, VaultUnlocked, Essentials]
+commands:
+  nation:
+    description: Found, join and run a nation and its treasury
+    usage: /nation help
+    permission: unbank.nation
+    aliases: [n]
+  un:
+    description: UN treasury and Secretary-General commands
+    usage: /un
+    permission: unbank.un
+permissions:
+  unbank.nation:
+    description: Use /nation
+    default: true
+  unbank.un:
+    description: Use /un balance
+    default: true
+  unbank.sg:
+    description: Secretary-General powers (/un war, fine, award, reparations)
+    default: op

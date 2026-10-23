@@ -1,0 +1,16 @@
+# UN Bank settings. After editing, run /un reload (data.yml holds the balances, don't edit it while the server runs).
+
+# Money given the first time each player joins each day.
+daily-reward: 25
+
+# What founding a nation costs. Goes to the UN treasury.
+nation-create-cost: 500
+
+# Highest daily tax a nation leader can set.
+max-daily-tax: 20
+
+# Share of every nation's tax that goes to the UN treasury, in percent.
+un-dues-percent: 10
+
+# What the attacking nation's treasury pays the UN when the Secretary-General approves a war (/un war).
+war-fee: 1000
